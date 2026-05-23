@@ -1,0 +1,23 @@
+{
+  "operationId": "listLeaveTypes",
+  "request": {
+    "method": "GET",
+    "url": "https://people.zoho.com/people/api/leave/getLeaveTypeDetails?userId=31415",
+    "headers": {
+      "Authorization": "Zoho-oauthtoken 1000.abcdef1234567890...",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "response": {
+        "result": [
+          { "Id": "1001", "Name": "Casual Leave", "Unit": "Days", "IsPaid": true, "IsHalfDayAllowed": true, "Balance": 8 },
+          { "Id": "1002", "Name": "Sick Leave",   "Unit": "Days", "IsPaid": true, "IsHalfDayAllowed": true, "Balance": 6 },
+          { "Id": "1003", "Name": "Earned Leave", "Unit": "Days", "IsPaid": true, "IsHalfDayAllowed": false, "Balance": 12 }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "operationId": "triggerWorkflow",
+  "request": {
+    "method": "POST",
+    "url": "https://people.zoho.com/people/api/automation/triggerWorkflow",
+    "headers": {
+      "Authorization": "Zoho-oauthtoken 1000.abcdef1234567890...",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": "workflowId=WF_ONBOARD_NEW_HIRE&inputData=%7B%22employeeId%22%3A%2231415%22%7D"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "response": {
+        "message": "Workflow Triggered",
+        "status": 0,
+        "result": [ { "workflowId": "WF_ONBOARD_NEW_HIRE", "runId": "RUN_20260523_001" } ]
+      }
+    }
+  }
+}

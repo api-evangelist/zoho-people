@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zoho-people/main/json-schema/zoho-people-time-log-schema.json",
+  "title": "ZohoPeopleTimeLog",
+  "type": "object",
+  "required": ["jobId", "workDate", "hours"],
+  "properties": {
+    "timeLogId":     { "type": "string" },
+    "jobId":         { "type": "string" },
+    "user":          { "type": "string" },
+    "workDate":      { "type": "string", "format": "date" },
+    "hours":         { "type": "number", "minimum": 0, "maximum": 24 },
+    "billingStatus": { "type": "string", "enum": ["billable", "nonBillable"] },
+    "description":   { "type": "string" }
+  }
+}

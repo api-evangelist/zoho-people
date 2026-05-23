@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zoho-people/main/json-schema/zoho-people-employee-schema.json",
+  "title": "ZohoPeopleEmployee",
+  "type": "object",
+  "required": ["EmployeeID", "FirstName", "LastName", "EmailID"],
+  "properties": {
+    "EmployeeID":       { "type": "string", "description": "Zoho People employee identifier." },
+    "FirstName":        { "type": "string" },
+    "LastName":         { "type": "string" },
+    "EmailID":          { "type": "string", "format": "email" },
+    "Department":       { "type": "string" },
+    "Designation":      { "type": "string" },
+    "Location":         { "type": "string" },
+    "DateofJoining":    { "type": "string", "format": "date" },
+    "ReportingTo":      { "type": "string" },
+    "EmploymentType":   { "type": "string", "enum": ["Permanent", "Contract", "Intern", "Consultant", "Temporary"] },
+    "EmployeeStatus":   { "type": "string", "enum": ["Active", "Inactive", "Terminated", "OnLeave"] },
+    "Mobile":           { "type": "string" },
+    "WorkPhone":        { "type": "string" },
+    "Nickname":         { "type": "string" }
+  }
+}

@@ -1,0 +1,65 @@
+vocabulary:
+  name: Zoho People Vocabulary
+  description: >-
+    Domain vocabulary for the Zoho People HRMS API surface. Terms are
+    grouped by the seven `ZOHOPEOPLE` OAuth scopes the provider publishes.
+  version: "1.0"
+  source: https://www.zoho.com/people/api/overview.html
+  terms:
+    Employee:
+      definition: An individual person on file as part of the organization in Zoho People.
+      scope: employee
+      schemaOrg: https://schema.org/Person
+    EmploymentType:
+      definition: Engagement classification for an employee (Permanent, Contract, Intern, Consultant, Temporary).
+      scope: employee
+    EmployeeStatus:
+      definition: Active/Inactive/Terminated/OnLeave lifecycle state of an employee record.
+      scope: employee
+    Form:
+      definition: A configurable Zoho People form (standard or custom) backing a data table.
+      scope: forms
+    FormRecord:
+      definition: A single row of data inside a Zoho People form.
+      scope: forms
+    LeaveType:
+      definition: A configurable leave bucket (e.g. Casual, Sick, Earned) with unit and balance rules.
+      scope: leave
+    LeaveRequest:
+      definition: An employee-initiated request to take leave for a date range under a leave type.
+      scope: leave
+    Holiday:
+      definition: A non-working calendar entry applied to one or more locations.
+      scope: leave
+    AttendanceEntry:
+      definition: A check-in / check-out record for an employee on a given date.
+      scope: attendance
+    AttendanceStatus:
+      definition: Present / Absent / Leave / Holiday / Weekend classification of a day.
+      scope: attendance
+    Job:
+      definition: A Time Tracker work item against which time logs are posted.
+      scope: timetracker
+    TimeLog:
+      definition: A single time entry posted against a Job, with billing status.
+      scope: timetracker
+    BillingStatus:
+      definition: Whether a TimeLog should be billed (billable) or not (nonBillable).
+      scope: timetracker
+    Announcement:
+      definition: A broadcast message surfaced on the Zoho People dashboard.
+      scope: dashboard
+    Birthday:
+      definition: An upcoming employee birthday surfaced on the dashboard.
+      scope: dashboard
+    Workflow:
+      definition: A configured Zoho People automation that can be triggered via the Automation API.
+      scope: automation
+  scopes:
+    employee:    Grants permission to employee related operations.
+    forms:       Grants permission to form related operations.
+    leave:       Grants permission to leave related operations.
+    attendance:  Grants permission to attendance related operations.
+    timetracker: Grants permission to time-tracker related operations.
+    dashboard:   Grants permission to dashboard reads.
+    automation:  Grants permission to automation / workflow triggers.

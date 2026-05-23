@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zoho-people/main/json-schema/zoho-people-attendance-entry-schema.json",
+  "title": "ZohoPeopleAttendanceEntry",
+  "type": "object",
+  "required": ["empId", "date"],
+  "properties": {
+    "empId":      { "type": "string" },
+    "date":       { "type": "string", "format": "date" },
+    "firstIn":    { "type": "string", "format": "date-time" },
+    "lastOut":    { "type": "string", "format": "date-time" },
+    "totalHours": { "type": "string", "description": "HH:MM total for the day." },
+    "status":     { "type": "string", "enum": ["Present", "Absent", "Leave", "Holiday", "Weekend"] },
+    "shiftName":  { "type": "string" }
+  }
+}

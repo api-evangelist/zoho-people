@@ -1,0 +1,76 @@
+apiCommonsPlans: "0.1"
+provider:
+  id: zoho-people
+  name: Zoho People
+  url: https://www.zoho.com/people/
+  pricingUrl: https://www.zoho.com/people/zohopeople-pricing.html
+  notes: >-
+    Tier names and inclusion model verified against
+    https://www.zoho.com/people/zohopeople-pricing.html and
+    https://help.zoho.com/portal/en/kb/articles/zoho-people-api-guides
+    (which states: "Essential HR, Professional, Premium, and Enterprise
+    plans"). Per-seat list prices vary by region/currency and were not
+    quoted on the visited pages — confirm in-product.
+
+billingModel: per-user-subscription
+billingCadence: [monthly, annual]
+annualDiscountNote: "Yearly — Save more than 20% (per Zoho pricing page)."
+
+plans:
+  - id: free
+    name: Free
+    description: Forever-free entry tier capped at 5 users with basic employee database and document management.
+    seatCap: 5
+    adminCap: 1
+    storage: 250 MB
+    apiAccess: false
+    price:
+      amount: 0
+      currency: USD
+      period: month
+  - id: essential-hr
+    name: Essential HR
+    description: Adds onboarding / offboarding workflows, shift management, and multi-level approvals.
+    apiAccess: true
+    price:
+      verified: false
+      note: "List price not captured from the pricing page during this pipeline run."
+  - id: professional
+    name: Professional
+    description: Adds attendance tracking with biometric integration, timesheet management, and shift patterns.
+    apiAccess: true
+    price:
+      verified: false
+  - id: premium
+    name: Premium
+    description: Adds performance management (KRAs, goals, 360-degree feedback) and engagement surveys. Marked "Most Popular" on the pricing page.
+    apiAccess: true
+    price:
+      verified: false
+  - id: enterprise
+    name: Enterprise
+    description: Adds learning management, advanced HR help desk, and custom functions for specialized automation. Contact sales for organizations with 500+ users.
+    apiAccess: true
+    price:
+      verified: false
+
+addOnsAndRelatedProducts:
+  - id: zoho-payroll
+    relationship: integrated
+    url: https://www.zoho.com/payroll/
+  - id: zoho-people-plus
+    relationship: bundle
+    note: Zoho People Plus is the broader people bundle (People + Recruit + Connect + Vault + Cliq + etc.).
+  - id: zoho-one
+    relationship: suite
+    url: https://www.zoho.com/one/
+
+trials:
+  - plan: any-paid
+    durationDays: 15
+    note: Standard Zoho free trial; see signup page.
+
+links:
+  pricing: https://www.zoho.com/people/zohopeople-pricing.html
+  signup:  https://www.zoho.com/people/signup.html
+  contactSales: https://www.zoho.com/people/contact.html

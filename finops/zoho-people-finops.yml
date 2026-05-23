@@ -1,0 +1,57 @@
+finopsFramework: "FOCUS-aligned 0.1"
+provider:
+  id: zoho-people
+  name: Zoho People
+  productLine: HR Management System (HRMS)
+  parentSuite: Zoho One
+  url: https://www.zoho.com/people/
+  pricingUrl: https://www.zoho.com/people/zohopeople-pricing.html
+
+billing:
+  model: per-user subscription
+  cadence: [monthly, annual]
+  annualDiscount: ">20% (per pricing page)"
+  invoiceUnit: SaaS subscription (no per-call SaaS metering documented)
+  paymentMethods: [credit-card, ACH, wire (enterprise)]
+  freeTier: { available: true, seatCap: 5, plan: Free }
+
+costDrivers:
+  - dimension: active-users
+    description: Primary driver — number of seats licensed under the chosen plan.
+  - dimension: plan-tier
+    description: Free / Essential HR / Professional / Premium / Enterprise drive per-seat unit cost.
+  - dimension: storage
+    description: Per-100-users storage allocation increases with plan tier (250 MB → 5 GB/100 users).
+  - dimension: api-call-ceiling
+    description: Daily API call ceilings increase by plan (numbers not publicly enumerated).
+  - dimension: add-on-products
+    description: Zoho Payroll / Zoho People Plus / Zoho One bundle pricing.
+
+allocation:
+  byBusinessUnit: tag-seats-to-cost-center
+  byProject: assign-Time-Tracker-jobs-to-projects-then-bill-via-zoho-books
+  byEnvironment: not-applicable
+
+unitEconomics:
+  primaryUnit: cost-per-active-employee-per-month
+  derivedUnits:
+    - cost-per-leave-request
+    - cost-per-time-log
+    - cost-per-onboarding-workflow
+
+observability:
+  invoicePortal: https://store.zoho.com/
+  consumptionVisibility: in-product (Admin Settings → Subscription)
+  auditTrail: in-product (Audit Logs)
+
+recommendations:
+  - Right-size seats quarterly; Zoho Free covers ≤5 seats indefinitely.
+  - Use annual billing to capture the >20% discount.
+  - For multi-app HR + finance footprints, evaluate Zoho One vs. standalone Zoho People + add-ons.
+  - Cap API ceilings per workflow on the Naftiko side to avoid surprise tier upgrades.
+
+verified: false
+notes: >-
+  This FinOps profile is built from public pricing-page disclosures only.
+  Verify list prices, API ceilings, and storage caps in-product before
+  using these numbers in any cost model.

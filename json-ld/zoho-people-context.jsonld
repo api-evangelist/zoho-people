@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "zp": "https://www.zoho.com/people/ns#",
+    "Employee": "schema:Person",
+    "LeaveRequest": "zp:LeaveRequest",
+    "LeaveType": "zp:LeaveType",
+    "AttendanceEntry": "zp:AttendanceEntry",
+    "TimeLog": "zp:TimeLog",
+    "FormRecord": "zp:FormRecord",
+
+    "EmployeeID": "schema:identifier",
+    "FirstName": "schema:givenName",
+    "LastName": "schema:familyName",
+    "EmailID": "schema:email",
+    "Mobile": "schema:telephone",
+    "Department": "schema:department",
+    "Designation": "schema:jobTitle",
+    "Location": "schema:workLocation",
+    "DateofJoining": { "@id": "schema:startDate", "@type": "xsd:date" },
+    "ReportingTo": "schema:colleague",
+    "EmploymentType": "zp:employmentType",
+    "EmployeeStatus": "zp:employeeStatus",
+
+    "From": { "@id": "schema:startDate", "@type": "xsd:date" },
+    "To":   { "@id": "schema:endDate",   "@type": "xsd:date" },
+    "DayType": "zp:dayType",
+    "Reason": "schema:description",
+    "ApprovalStatus": "zp:approvalStatus",
+    "Leavetype": "zp:leaveType",
+
+    "date":       { "@id": "schema:date", "@type": "xsd:date" },
+    "firstIn":    { "@id": "zp:firstIn", "@type": "xsd:dateTime" },
+    "lastOut":    { "@id": "zp:lastOut", "@type": "xsd:dateTime" },
+    "totalHours": "zp:totalHours",
+    "status":     "zp:attendanceStatus",
+    "shiftName":  "zp:shiftName",
+
+    "jobId":         "zp:jobId",
+    "workDate":      { "@id": "schema:workPerformed", "@type": "xsd:date" },
+    "hours":         { "@id": "zp:hours", "@type": "xsd:decimal" },
+    "billingStatus": "zp:billingStatus",
+    "description":   "schema:description",
+
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}

@@ -1,0 +1,42 @@
+apiVersion: naftiko.io/v1
+kind: CapabilityWorkflow
+metadata:
+  name: leave-request-lifecycle
+  provider: Zoho People
+  description: >-
+    Submit a Zoho People leave request, then poll the leave records list
+    until the request reaches a terminal state (Approved / Rejected /
+    Cancelled).
+spec:
+  inputs:
+    - name: employeeId
+      type: string
+    - name: leaveType
+      type: string
+    - name: fromDate
+      type: string
+      format: date
+    - name: toDate
+      type: string
+      format: date
+    - name: reason
+      type: string
+  steps:
+    - id: balance-check
+      capability: zoho-people:list-leave-types
+      args: { userId: ${inputs.employeeId} }
+    - id: submit
+      capability: zoho-people:apply-for-leave
+      args:
+        inputData:
+          EmployeeID: ${inputs.employeeId}
+          Leavetype: ${inputs.leaveType}
+          From: ${inputs.fromDate}
+          To: ${inputs.toDate}
+          Reason: ${inputs.reason}
+    - id: confirm
+      capability: zoho-people:list-leave-requests
+      args:
+        searchParams: { searchField: ApprovalStatus, searchOperator: Is, searchText: Pending }
+  outputs:
+    leaveRecordId: ${steps.submit.result.pkId}

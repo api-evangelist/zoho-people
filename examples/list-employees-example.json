@@ -1,0 +1,33 @@
+{
+  "operationId": "listEmployees",
+  "request": {
+    "method": "GET",
+    "url": "https://people.zoho.com/people/api/forms/employee/getRecords?searchParams=%7B%22searchField%22%3A%22Department%22%2C%22searchOperator%22%3A%22Is%22%2C%22searchText%22%3A%22Engineering%22%7D",
+    "headers": {
+      "Authorization": "Zoho-oauthtoken 1000.abcdef1234567890...",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "response": {
+        "result": [
+          {
+            "EmployeeID": "31415",
+            "FirstName": "Ada",
+            "LastName": "Lovelace",
+            "EmailID": "ada.lovelace@example.com",
+            "Department": "Engineering",
+            "Designation": "Staff Engineer",
+            "Location": "Remote — US",
+            "DateofJoining": "2024-01-15",
+            "ReportingTo": "27182",
+            "EmploymentType": "Permanent",
+            "EmployeeStatus": "Active"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "operationId": "applyForLeave",
+  "request": {
+    "method": "POST",
+    "url": "https://people.zoho.com/people/api/forms/leave/insertRecord",
+    "headers": {
+      "Authorization": "Zoho-oauthtoken 1000.abcdef1234567890...",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": "inputData=%7B%22EmployeeID%22%3A%2231415%22%2C%22Leavetype%22%3A%22Casual+Leave%22%2C%22From%22%3A%222026-06-10%22%2C%22To%22%3A%222026-06-11%22%2C%22Reason%22%3A%22Family+commitment%22%7D"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "response": {
+        "message": "Data Added Successfully",
+        "status": 0,
+        "result": [
+          { "pkId": "8826000000123456" }
+        ]
+      }
+    }
+  }
+}

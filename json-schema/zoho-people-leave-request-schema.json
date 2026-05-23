@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zoho-people/main/json-schema/zoho-people-leave-request-schema.json",
+  "title": "ZohoPeopleLeaveRequest",
+  "type": "object",
+  "required": ["EmployeeID", "Leavetype", "From", "To"],
+  "properties": {
+    "EmployeeID":     { "type": "string" },
+    "Leavetype":      { "type": "string", "description": "Name or id of a configured leave type." },
+    "From":           { "type": "string", "format": "date" },
+    "To":             { "type": "string", "format": "date" },
+    "DayType":        { "type": "string", "enum": ["FullDay", "FirstHalf", "SecondHalf"] },
+    "Reason":         { "type": "string" },
+    "ApprovalStatus": { "type": "string", "enum": ["Pending", "Approved", "Rejected", "Cancelled"] }
+  }
+}

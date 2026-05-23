@@ -1,0 +1,38 @@
+apiVersion: naftiko.io/v1
+kind: CapabilityWorkflow
+metadata:
+  name: timesheet-billing
+  provider: Zoho People
+  description: >-
+    Daily timesheet posting flow — list available Time Tracker jobs,
+    create one or more time logs against billable jobs, and pull the
+    week's logs for the user.
+spec:
+  inputs:
+    - name: user
+      type: string
+    - name: entries
+      type: array
+      items:
+        type: object
+        properties:
+          jobId: { type: string }
+          workDate: { type: string, format: date }
+          hours: { type: number }
+          billingStatus: { type: string, enum: [billable, nonBillable] }
+          description: { type: string }
+  steps:
+    - id: jobs
+      capability: zoho-people:list-jobs
+    - id: log-each
+      capability: zoho-people:create-time-log
+      forEach: ${inputs.entries}
+      args: ${each}
+    - id: week-recap
+      capability: zoho-people:list-time-logs
+      args:
+        user: ${inputs.user}
+        fromDate: ${inputs.entries[0].workDate}
+        toDate: ${inputs.entries[-1].workDate}
+  outputs:
+    loggedTimeIds: ${steps.log-each.result[*].timeLogId}

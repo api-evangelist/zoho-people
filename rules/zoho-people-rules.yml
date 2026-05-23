@@ -1,0 +1,63 @@
+extends:
+  - spectral:oas
+formats:
+  - oas3
+rules:
+  zoho-people-title-case-summary:
+    description: Operation summary must use Title Case
+    severity: warn
+    given: $.paths..[get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*)(\s+(For|And|Or|To|In|On|Of|A|An|The|At|By|With|From)\s+|\s+[A-Z][a-zA-Z0-9]*)*$'
+
+  zoho-people-operation-id-camel-case:
+    description: operationId must be lowerCamelCase
+    severity: error
+    given: $.paths..[get,post,put,patch,delete].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]+$'
+
+  zoho-people-oauth-required:
+    description: Every operation must require the ZohoOAuth2 security scheme
+    severity: error
+    given: $.paths..[get,post,put,patch,delete]
+    then:
+      field: security
+      function: truthy
+
+  zoho-people-tags-required:
+    description: Every operation must be tagged with at least one Zoho People domain tag
+    severity: error
+    given: $.paths..[get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+
+  zoho-people-data-center-servers:
+    description: Spec must enumerate Zoho People servers for each documented data center
+    severity: warn
+    given: $.servers
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          minItems: 6
+
+  zoho-people-oauth-scope-format:
+    description: Defined OAuth scopes must follow `ZohoPeople.<scope>.<operation>` format
+    severity: warn
+    given: $.components.securitySchemes.ZohoOAuth2.flows.authorizationCode.scopes
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          patternProperties:
+            '^ZohoPeople\.(employee|forms|dashboard|automation|timetracker|attendance|leave)\.(ALL|READ|CREATE|UPDATE|DELETE)$':
+              type: string
+          additionalProperties: false

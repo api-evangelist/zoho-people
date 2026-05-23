@@ -1,0 +1,30 @@
+{
+  "operationId": "checkInOut",
+  "request": {
+    "method": "POST",
+    "url": "https://people.zoho.com/people/api/attendance",
+    "headers": {
+      "Authorization": "Zoho-oauthtoken 1000.abcdef1234567890...",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": "checkIn=2026-05-23+09%3A00%3A00&checkOut=2026-05-23+18%3A00%3A00&empId=31415"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "response": {
+        "message": "success",
+        "status": 0,
+        "result": [
+          {
+            "empId": "31415",
+            "date": "2026-05-23",
+            "firstIn": "2026-05-23 09:00:00",
+            "lastOut": "2026-05-23 18:00:00",
+            "totalHours": "09:00"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zoho-people/main/json-schema/zoho-people-leave-type-schema.json",
+  "title": "ZohoPeopleLeaveType",
+  "type": "object",
+  "required": ["Id", "Name"],
+  "properties": {
+    "Id":               { "type": "string" },
+    "Name":             { "type": "string" },
+    "Unit":             { "type": "string", "enum": ["Days", "Hours"] },
+    "IsPaid":           { "type": "boolean" },
+    "IsHalfDayAllowed": { "type": "boolean" },
+    "Balance":          { "type": "number" },
+    "AccrualRule":      { "type": "string" }
+  }
+}

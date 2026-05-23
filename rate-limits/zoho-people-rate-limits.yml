@@ -1,0 +1,53 @@
+apiCommonsRateLimits: "0.1"
+provider:
+  id: zoho-people
+  name: Zoho People
+  source:
+    - https://www.zoho.com/people/zohopeople-pricing.html
+    - https://www.zoho.com/people/api/overview.html
+
+notes: >-
+  Zoho's pricing page indicates that "API call limits increase substantially
+  with higher plans, supporting greater integration complexity." Specific
+  numeric per-plan ceilings are not enumerated on the public pricing
+  excerpt; the values below are placeholders and MUST be verified inside
+  the product or via Zoho support before being used for capacity planning.
+
+policies:
+  - id: oauth-token-lifetime
+    description: Access token validity per Zoho Accounts OAuth 2.0.
+    scope: token
+    limit:
+      value: 3600
+      unit: seconds
+    source: https://www.zoho.com/accounts/protocol/oauth.html
+
+  - id: per-plan-api-calls
+    description: Per-organization daily API call cap, tiered by plan. Verify exact ceilings in-product.
+    scope: organization
+    tiered:
+      - plan: free
+        verified: false
+        limit: { value: 0, unit: calls/day, note: "API not available on the Free plan." }
+      - plan: essential-hr
+        verified: false
+      - plan: professional
+        verified: false
+      - plan: premium
+        verified: false
+      - plan: enterprise
+        verified: false
+
+  - id: zoho-accounts-oauth-token
+    description: Standard Zoho Accounts token-endpoint throttle.
+    scope: client
+    verified: false
+    note: "Zoho Accounts has historical limits around refresh-token issuance per minute; consult Zoho docs."
+
+errorSignals:
+  - code: 429
+    name: Too Many Requests
+    behavior: Retry with exponential backoff; honor any Retry-After header.
+  - code: 401
+    name: Unauthorized
+    behavior: Refresh the OAuth access token (lifetime 1 hour) and retry.
