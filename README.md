@@ -1,69 +1,91 @@
-# Zoho People
+# Zoho People (zoho-people)
 
-API Evangelist index repo for **[Zoho People](https://www.zoho.com/people/)** — Zoho's AI-first, cloud-based HRMS that spans the Core HR, Time & Attendance, Leave, Performance, Learning, Recruitment, Payroll and HR Analytics domains and ships as part of the broader Zoho One business suite.
+Zoho People is Zoho's cloud-based, AI-first HR management system (HRMS) spanning core HR, time and attendance, leave, performance, learning, recruitment, payroll and analytics — bundled inside the Zoho One business suite. The Zoho People REST API exposes employee records, custom forms, leave, attendance, time tracking, automation, and dashboard data in XML or JSON, secured with Zoho OAuth 2.0 via the Zoho Accounts service and the seven `ZOHOPEOPLE` scopes (employee, forms, dashboard, automation, timetracker, attendance, leave).
 
-> "AI-first HR software for every business"
-> — [zoho.com/people](https://www.zoho.com/people/)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/apis.yml)
 
-This repo follows the [APIs.json](https://apisjson.org) convention. The root `apis.yml` is the machine-readable index; everything else lives in its dedicated subfolder.
+## Scope
 
-## API surface
+- **Type:** Index
 
-| API | Base URL | Auth | Reference |
-|---|---|---|---|
-| Zoho People REST API | `https://people.zoho.com/people/api` (US DC) | Zoho Accounts OAuth 2.0, scope namespace `ZOHOPEOPLE` | [overview](https://www.zoho.com/people/api/overview.html) |
+## Tags
 
-The provider publishes **seven OAuth scopes** (verified on [the scopes page](https://www.zoho.com/people/api/scopes.html)):
-`employee`, `forms`, `dashboard`, `automation`, `timetracker`, `attendance`, `leave` — each with one or more operation types (`ALL`, `READ`, `CREATE`, `UPDATE`, `DELETE`). Scope strings follow the pattern `ZohoPeople.<scope>.<operation>`.
+- HR
+- HRMS
+- Human Resources
+- HRIS
+- Employee Management
+- Attendance
+- Leave Management
+- Time Tracking
+- Performance Management
+- Onboarding
+- Zoho
+- OAuth 2.0
 
-Tokens are issued by [Zoho Accounts](https://www.zoho.com/accounts/protocol/oauth.html) using the **Authorization Code** grant; access tokens live for **1 hour**, refresh tokens are long-lived.
+## Timestamps
 
-Eight regional data centers are documented as servers in [`openapi/zoho-people-openapi.yml`](openapi/zoho-people-openapi.yml) (US, EU, IN, AU, JP, CN, CA, SA).
+- **Created:** 2026-05-23
+- **Modified:** 2026-05-23
 
-## Artifacts in this repo
+## APIs
 
-| Folder | Files |
-|---|---|
-| `openapi/` | `zoho-people-openapi.yml` — OpenAPI 3.1 covering Employee, Forms, Leave, Attendance, Time Tracker, Dashboard, Automation. |
-| `rules/` | `zoho-people-rules.yml` — Spectral ruleset enforcing Title Case summaries, lowerCamelCase operationIds, OAuth-on-every-op, scope-format validation, and the multi-DC server list. |
-| `capabilities/shared/` | `zoho-people-capabilities.yaml` — Naftiko per-API capability map (one capability per operation, with scope hints and governance flags). |
-| `capabilities/` | `employee-onboarding.yaml`, `leave-request-lifecycle.yaml`, `timesheet-billing.yaml` — workflow compositions. |
-| `json-schema/` | `zoho-people-employee-schema.json`, `zoho-people-leave-request-schema.json`, `zoho-people-attendance-entry-schema.json`, `zoho-people-time-log-schema.json`, `zoho-people-leave-type-schema.json`. |
-| `json-ld/` | `zoho-people-context.jsonld` — JSON-LD context aligning People entities with [schema.org](https://schema.org/) and the `zp:` namespace. |
-| `vocabulary/` | `zoho-people-vocabulary.yml` — domain vocabulary keyed to the seven OAuth scopes. |
-| `examples/` | `list-employees`, `apply-for-leave`, `check-in-out`, `list-leave-types`, `create-time-log`, `trigger-workflow`. |
-| `plans/` | `zoho-people-plans-pricing.yml` — API Commons Plans profile (Free → Essential HR → Professional → Premium → Enterprise). |
-| `rate-limits/` | `zoho-people-rate-limits.yml` — API Commons Rate Limits profile (token lifetime + per-plan ceilings; plan numbers flagged unverified). |
-| `finops/` | `zoho-people-finops.yml` — FOCUS-aligned FinOps profile (per-user subscription, annual discount, cost drivers). |
+### Zoho People REST API
 
-## Provider properties indexed
+OAuth 2.0 protected REST API for Zoho People HRMS, exposing employee records, custom forms, leave, attendance, time-tracker, automation, and dashboard data. Requests and responses are XML or JSON, secured with Zoho Accounts OAuth 2.0 authorization-code tokens scoped under the `ZOHOPEOPLE` service namespace.
 
-- **Website** — https://www.zoho.com/people/
-- **Pricing** — https://www.zoho.com/people/zohopeople-pricing.html
-- **API Guide (5.0)** — https://help.zoho.com/portal/en/kb/people/api-guide
-- **API overview** — https://www.zoho.com/people/api/overview.html
-- **OAuth overview** — https://www.zoho.com/people/api/oauth.html
-- **Scopes** — https://www.zoho.com/people/api/scopes.html
-- **Integrations** — https://www.zoho.com/people/integrations.html
-- **Status page** — https://status.zoho.com/ (RSS: https://status.zoho.com/rss)
-- **Blog** — https://www.zoho.com/blog/people/
-- **GitHub org** — https://github.com/zoho (237 public repos across the Zoho portfolio)
+- **Human URL:** [https://www.zoho.com/people/api/overview.html](https://www.zoho.com/people/api/overview.html)
+- **Base URL:** `https://people.zoho.com/people/api`
 
-## Notable findings
+#### Tags
 
-- Verified seven OAuth scopes — the public scopes page enumerates `employee, forms, dashboard, automation, timetracker, attendance, leave`, which is the cleanest authoritative carve-up of the API surface.
-- The API is bundled with **Essential HR, Professional, Premium, and Enterprise** plans (not Free), confirmed against the Zoho People 5.0 API Guide.
-- Operates on Zoho's standard **multi-DC** topology: `.com / .eu / .in / .com.au / .jp / .com.cn / zohocloud.ca / .sa`.
-- Integrations footprint spans Zoho Payroll, Zoho Recruit, Zoho Books, Zoho Sign, Microsoft 365, Google Workspace, Slack, MS Teams, Zapier, Zoho Flow, Adobe Sign, Docusign, QuickBooks, Xero, Paybooks, greytHR, Xoxoday, Vantage Circle, Zoho Vault, Zoho Directory.
+- HRMS
+- HR
+- Employee
+- Forms
+- Leave
+- Attendance
+- Time Tracker
+- OAuth 2.0
+- REST
 
-## Notable absences
+#### Properties
 
-- **No public OpenAPI spec** shipped by Zoho People (unlike Zoho CRM which publishes one). The OpenAPI in this repo is reverse-engineered from the documented OAuth scopes and the canonical request/response patterns Zoho uses across its product line.
-- **No dedicated GitHub org** for Zoho People — the `github.com/zoho` org carries CRM, Catalyst, SalesIQ, WorkDrive samples, but no People SDK.
-- **No public per-call rate-limit table** — the pricing page only states that "API call limits increase substantially with higher plans."
-- **No verifiable list prices** captured from the public pricing page in this run (toggle UI only); plan price fields in `plans/` are flagged `verified: false`.
-- **No status-page RSS dedicated to People** — only the global `status.zoho.com/rss`.
+- [Documentation](https://www.zoho.com/people/api/overview.html)
+- [A P I  Guide](https://help.zoho.com/portal/en/kb/people/api-guide)
+- [O Auth  Overview](https://www.zoho.com/people/api/oauth.html)
+- [Scopes](https://www.zoho.com/people/api/scopes.html)
+- [Authentication](https://www.zoho.com/people/api/authentication.html)
+- [O Auth 2.0  Protocol](https://www.zoho.com/accounts/protocol/oauth.html)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/openapi/zoho-people-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/rules/zoho-people-rules.yml)
+- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/json-schema/zoho-people-employee-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON-LD](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/json-ld/zoho-people-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/vocabulary/zoho-people-vocabulary.yml)
+- [Plans](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/plans/zoho-people-plans-pricing.yml)
+- [Rate Limits](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/rate-limits/zoho-people-rate-limits.yml)
+- [Fin Ops](https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/finops/zoho-people-finops.yml)
+- [Postman Collection](collections/zoho-people.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/zoho-people.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-## Maintainer
+## Common Properties
 
-- [Kin Lane](https://apievangelist.com/) — kin@apievangelist.com
+- [Website](https://www.zoho.com/people/)
+- [Product Overview](https://www.zoho.com/people/)
+- [Documentation](https://www.zoho.com/people/api/overview.html)
+- [Help Center](https://help.zoho.com/portal/en/kb/people)
+- [Pricing](https://www.zoho.com/people/zohopeople-pricing.html)
+- [Sign Up](https://www.zoho.com/people/signup.html)
+- [Login](https://people.zoho.com/)
+- [Integrations](https://www.zoho.com/people/integrations.html)
+- [Blog](https://www.zoho.com/blog/people/)
+- [Status Page](https://status.zoho.com/)
+- [Status Page R S S](https://status.zoho.com/rss)
+- [GitHub Organization](https://github.com/zoho)
+- [Zoho One Suite](https://www.zoho.com/one/)
+- [Community](https://help.zoho.com/portal/en/community/zoho-people)
+
+## Maintainers
+
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com

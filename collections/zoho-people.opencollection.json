@@ -1,0 +1,536 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho People REST API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+      "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Forms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Form Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/forms/:formName/records",
+            "params": [
+              {
+                "name": "formName",
+                "value": "",
+                "type": "path",
+                "description": "Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+              },
+              {
+                "name": "searchParams",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded search criteria."
+              },
+              {
+                "name": "sIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rec_limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch records from a Zoho People form (employee form, custom form, etc.)."
+        },
+        {
+          "info": {
+            "name": "Insert Form Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/forms/:formName/records",
+            "params": [
+              {
+                "name": "formName",
+                "value": "",
+                "type": "path",
+                "description": "Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Insert a new record into a Zoho People form."
+        },
+        {
+          "info": {
+            "name": "Update Form Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/forms/:formName/updateRecord",
+            "params": [
+              {
+                "name": "formName",
+                "value": "",
+                "type": "path",
+                "description": "Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update an existing record in a Zoho People form."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Employee",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Employee Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/forms/employee/getRecords",
+            "params": [
+              {
+                "name": "searchParams",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch employee records from the standard Employee form."
+        },
+        {
+          "info": {
+            "name": "Create Employee Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/forms/employee/insertRecord",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Employee Record"
+        },
+        {
+          "info": {
+            "name": "Update Employee Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/forms/employee/updateRecord",
+            "params": [
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update Employee Record"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Leave",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Holidays",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/leave/getHolidays",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Holidays"
+        },
+        {
+          "info": {
+            "name": "List Leave Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/leave/getLeaveTypeDetails",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Leave Types"
+        },
+        {
+          "info": {
+            "name": "Apply For Leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/forms/leave/insertRecord",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Apply For Leave"
+        },
+        {
+          "info": {
+            "name": "List Leave Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/forms/leave/getRecords",
+            "params": [
+              {
+                "name": "searchParams",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Leave Requests"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Attendance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check In Or Check Out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/attendance",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "checkIn",
+                  "value": ""
+                },
+                {
+                  "name": "checkOut",
+                  "value": ""
+                },
+                {
+                  "name": "empId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Mark an attendance entry (check-in or check-out) for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Get User Attendance Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/attendance/getUserReport",
+            "params": [
+              {
+                "name": "empId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sdate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "edate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get User Attendance Report"
+        },
+        {
+          "info": {
+            "name": "Bulk Import Attendance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/attendance/bulkImport",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Bulk Import Attendance"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Time Tracker",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Time Tracker Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/timetracker/jobs"
+          },
+          "docs": "List Time Tracker Jobs"
+        },
+        {
+          "info": {
+            "name": "Create Time Tracker Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/timetracker/jobs",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Time Tracker Job"
+        },
+        {
+          "info": {
+            "name": "List Time Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/timetracker/timelogs",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Time Logs"
+        },
+        {
+          "info": {
+            "name": "Create Time Log",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/timetracker/timelogs",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "jobId",
+                  "value": ""
+                },
+                {
+                  "name": "workDate",
+                  "value": ""
+                },
+                {
+                  "name": "hours",
+                  "value": ""
+                },
+                {
+                  "name": "billingStatus",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Time Log"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Dashboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Announcements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/dashboard/getAnnouncements"
+          },
+          "docs": "List Announcements"
+        },
+        {
+          "info": {
+            "name": "List Upcoming Birthdays",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/dashboard/getBirthdays"
+          },
+          "docs": "List Upcoming Birthdays"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Automation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trigger Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/automation/triggerWorkflow",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "workflowId",
+                  "value": ""
+                },
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Trigger Workflow"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

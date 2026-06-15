@@ -1,14 +1,11 @@
 aid: zoho-people
 name: Zoho People
 description: >-
-  Zoho People is Zoho's cloud-based, AI-first HR management system (HRMS)
-  spanning core HR, time and attendance, leave, performance, learning,
-  recruitment, payroll and analytics — bundled inside the Zoho One business
-  suite. The Zoho People REST API exposes employee records, custom forms,
-  leave, attendance, time tracking, automation, and dashboard data in XML
-  or JSON, secured with Zoho OAuth 2.0 via the Zoho Accounts service and
-  the seven `ZOHOPEOPLE` scopes (employee, forms, dashboard, automation,
-  timetracker, attendance, leave).
+  Zoho People is Zoho's cloud-based, AI-first HR management system (HRMS) spanning core HR, time and attendance, leave,
+  performance, learning, recruitment, payroll and analytics — bundled inside the Zoho One business suite. The Zoho
+  People REST API exposes employee records, custom forms, leave, attendance, time tracking, automation, and dashboard
+  data in XML or JSON, secured with Zoho OAuth 2.0 via the Zoho Accounts service and the seven `ZOHOPEOPLE` scopes
+  (employee, forms, dashboard, automation, timetracker, attendance, leave).
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -24,8 +21,7 @@ tags:
   - Onboarding
   - Zoho
   - OAuth 2.0
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/apis.yml
 created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.20'
@@ -33,11 +29,9 @@ apis:
   - aid: zoho-people:rest-api
     name: Zoho People REST API
     description: >-
-      OAuth 2.0 protected REST API for Zoho People HRMS, exposing employee
-      records, custom forms, leave, attendance, time-tracker, automation,
-      and dashboard data. Requests and responses are XML or JSON, secured
-      with Zoho Accounts OAuth 2.0 authorization-code tokens scoped under
-      the `ZOHOPEOPLE` service namespace.
+      OAuth 2.0 protected REST API for Zoho People HRMS, exposing employee records, custom forms, leave, attendance,
+      time-tracker, automation, and dashboard data. Requests and responses are XML or JSON, secured with Zoho Accounts
+      OAuth 2.0 authorization-code tokens scoped under the `ZOHOPEOPLE` service namespace.
     humanURL: https://www.zoho.com/people/api/overview.html
     baseURL: https://people.zoho.com/people/api
     tags:
@@ -64,20 +58,15 @@ apis:
       - type: OAuth 2.0 Protocol
         url: https://www.zoho.com/accounts/protocol/oauth.html
       - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/openapi/zoho-people-openapi.yml
+        url: https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/openapi/zoho-people-openapi.yml
       - type: SpectralRules
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/rules/zoho-people-rules.yml
+        url: https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/rules/zoho-people-rules.yml
       - type: JSONSchema
         url: >-
           https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/json-schema/zoho-people-employee-schema.json
       - type: JSONLD
         url: >-
           https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/json-ld/zoho-people-context.jsonld
-      - type: NaftikoCapabilities
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/capabilities/shared/zoho-people-capabilities.yaml
       - type: Vocabulary
         url: >-
           https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/vocabulary/zoho-people-vocabulary.yml
@@ -88,8 +77,7 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/rate-limits/zoho-people-rate-limits.yml
       - type: FinOps
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/finops/zoho-people-finops.yml
+        url: https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/finops/zoho-people-finops.yml
 common:
   - type: Website
     url: https://www.zoho.com/people/

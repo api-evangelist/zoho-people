@@ -1,0 +1,2114 @@
+{
+  "item": [
+    {
+      "id": "fa86913f-6d91-484d-a83d-f96dcac30c96",
+      "name": "Employee",
+      "description": {
+        "content": "Employee record CRUD across the People HRIS.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "228b52f1-0268-4b1b-b5b0-daa0ba807003",
+          "name": "List Employee Records",
+          "request": {
+            "name": "List Employee Records",
+            "description": {
+              "content": "Fetch employee records from the standard Employee form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                "employee",
+                "getRecords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchParams",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9504f23b-42be-4e22-b661-e5105ea5098e",
+              "name": "Employees returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "employee",
+                    "getRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchParams",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"result\": [\n      {\n        \"EmployeeID\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"EmailID\": \"fdxzJk@XeoqEHPHIZ.sdj\",\n        \"Department\": \"string\",\n        \"Designation\": \"string\",\n        \"Location\": \"string\",\n        \"DateofJoining\": \"2013-06-01\",\n        \"ReportingTo\": \"string\",\n        \"EmploymentType\": \"Intern\",\n        \"EmployeeStatus\": \"OnLeave\"\n      },\n      {\n        \"EmployeeID\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"EmailID\": \"raCmfC6AA6@CDPzOGLyjamXYuiGCfqjw.kffn\",\n        \"Department\": \"string\",\n        \"Designation\": \"string\",\n        \"Location\": \"string\",\n        \"DateofJoining\": \"1980-12-27\",\n        \"ReportingTo\": \"string\",\n        \"EmploymentType\": \"Temporary\",\n        \"EmployeeStatus\": \"Active\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d357c84-b3a2-40d4-b469-07bd407436a5",
+          "name": "Create Employee Record",
+          "request": {
+            "name": "Create Employee Record",
+            "description": {},
+            "url": {
+              "path": [
+                "forms",
+                "employee",
+                "insertRecord"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>",
+                  "description": "JSON-encoded employee fields."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "800606a6-18c8-4a97-8f50-2cbf0e5de29f",
+              "name": "Employee created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "employee",
+                    "insertRecord"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-encoded employee fields.",
+                        "type": "text/plain"
+                      },
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "388b6f12-8f3d-42aa-9a1f-ad042bf78364",
+          "name": "Update Employee Record",
+          "request": {
+            "name": "Update Employee Record",
+            "description": {},
+            "url": {
+              "path": [
+                "forms",
+                "employee",
+                "updateRecord"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "recordId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2454fc70-d093-4039-a002-7f4d34b59a85",
+              "name": "Employee updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "employee",
+                    "updateRecord"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "recordId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "952e7df6-fb00-4def-915f-2368eccfce29",
+      "name": "Forms",
+      "description": {
+        "content": "Custom and standard form record operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f118c70e-9c47-4961-a31f-72f33cb57639",
+          "name": "List Form Records",
+          "request": {
+            "name": "List Form Records",
+            "description": {
+              "content": "Fetch records from a Zoho People form (employee form, custom form, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formName",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchParams",
+                  "value": "<string>",
+                  "description": "JSON-encoded search criteria."
+                },
+                {
+                  "disabled": false,
+                  "key": "sIndex",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "rec_limit",
+                  "value": "100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formName",
+                  "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92370c29-1815-4a8d-988f-ac91f11ae56b",
+              "name": "Records returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchParams",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sIndex",
+                      "value": "1"
+                    },
+                    {
+                      "key": "rec_limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formName",
+                      "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"result\": [\n      {\n        \"recordId\": \"string\",\n        \"addedTime\": \"1947-09-19T14:52:14.876Z\",\n        \"modifiedTime\": \"2010-04-04T08:21:37.450Z\",\n        \"key_0\": 6665,\n        \"key_1\": 253.26448927505018,\n        \"key_2\": \"string\",\n        \"key_3\": false\n      },\n      {\n        \"recordId\": \"string\",\n        \"addedTime\": \"2022-02-03T10:41:06.208Z\",\n        \"modifiedTime\": \"1951-12-13T06:20:14.028Z\",\n        \"key_0\": 732.6388631838288,\n        \"key_1\": \"string\",\n        \"key_2\": 8039\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a0741d8-5326-471e-a9c5-22114a2c1d41",
+          "name": "Insert Form Record",
+          "request": {
+            "name": "Insert Form Record",
+            "description": {
+              "content": "Insert a new record into a Zoho People form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formName",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formName",
+                  "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>",
+                  "description": "JSON string of field name/value pairs to insert."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "886689a4-6ebe-45e8-a3bf-ada4cd45566b",
+              "name": "Record created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formName",
+                      "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON string of field name/value pairs to insert.",
+                        "type": "text/plain"
+                      },
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c2c1cb8-803f-45f3-b640-ff61fde47f5a",
+          "name": "Update Form Record",
+          "request": {
+            "name": "Update Form Record",
+            "description": {
+              "content": "Update an existing record in a Zoho People form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formName",
+                "updateRecord"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "recordId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formName",
+                  "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "62cb6da3-746f-4904-9d5f-32461011f825",
+              "name": "Record updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formName",
+                    "updateRecord"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "recordId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formName",
+                      "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "74b0991a-d051-47b6-b534-ecd4873e59d0",
+      "name": "Leave",
+      "description": {
+        "content": "Leave types, balances, and request lifecycle.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c371bdd-ab14-4964-8b98-a6073dc8a6d2",
+          "name": "List Holidays",
+          "request": {
+            "name": "List Holidays",
+            "description": {},
+            "url": {
+              "path": [
+                "leave",
+                "getHolidays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f6e15b9b-99f0-4092-a39d-261583519885",
+              "name": "Holidays returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave",
+                    "getHolidays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f44bf288-b68d-4265-910b-ed87c32aabd3",
+          "name": "List Leave Types",
+          "request": {
+            "name": "List Leave Types",
+            "description": {},
+            "url": {
+              "path": [
+                "leave",
+                "getLeaveTypeDetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a4397bd-db95-4317-b44a-1abac0b3294b",
+              "name": "Leave types returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leave",
+                    "getLeaveTypeDetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"result\": [\n      {\n        \"Id\": \"string\",\n        \"Name\": \"string\",\n        \"Unit\": \"Days\",\n        \"IsPaid\": true,\n        \"IsHalfDayAllowed\": true,\n        \"Balance\": 1041.4186581631025\n      },\n      {\n        \"Id\": \"string\",\n        \"Name\": \"string\",\n        \"Unit\": \"Hours\",\n        \"IsPaid\": true,\n        \"IsHalfDayAllowed\": false,\n        \"Balance\": 4988.611000325534\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ddf3b3c-07d5-4a1c-897e-81e41eb3e1f3",
+          "name": "Apply For Leave",
+          "request": {
+            "name": "Apply For Leave",
+            "description": {},
+            "url": {
+              "path": [
+                "forms",
+                "leave",
+                "insertRecord"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>",
+                  "description": "JSON-encoded leave request (employeeId, leaveTypeId, from, to, reason)."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2d6971f1-277b-4a5e-b65f-3735cd52a355",
+              "name": "Leave request submitted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "leave",
+                    "insertRecord"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-encoded leave request (employeeId, leaveTypeId, from, to, reason).",
+                        "type": "text/plain"
+                      },
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ed988d4-1041-4a91-9a6d-4c7748f26636",
+          "name": "List Leave Requests",
+          "request": {
+            "name": "List Leave Requests",
+            "description": {},
+            "url": {
+              "path": [
+                "forms",
+                "leave",
+                "getRecords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchParams",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74cad875-eab1-417e-8ca0-c71dd8752f3d",
+              "name": "Leave requests returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "leave",
+                    "getRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchParams",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9353ead0-5a8b-4533-8cd6-07ebf11819f9",
+      "name": "Attendance",
+      "description": {
+        "content": "Attendance entries, check-in / check-out, regularization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dba7759a-cdb5-4788-b992-3eb28797ec08",
+          "name": "Check In Or Check Out",
+          "request": {
+            "name": "Check In Or Check Out",
+            "description": {
+              "content": "Mark an attendance entry (check-in or check-out) for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attendance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "checkIn",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "checkOut",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "empId",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "245afa95-865d-450b-8616-4db3e712107b",
+              "name": "Attendance entry recorded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attendance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "checkIn",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "checkOut",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "empId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1df0698b-054e-4d2e-9c47-2623654f3792",
+          "name": "Get User Attendance Report",
+          "request": {
+            "name": "Get User Attendance Report",
+            "description": {},
+            "url": {
+              "path": [
+                "attendance",
+                "getUserReport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "empId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sdate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "edate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f23fa06-4a25-420e-bec6-a257861ad331",
+              "name": "Attendance report returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attendance",
+                    "getUserReport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "empId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "edate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"empId\": \"string\",\n  \"records\": [\n    {\n      \"date\": \"2012-07-21\",\n      \"firstIn\": \"2018-08-19T03:25:49.812Z\",\n      \"lastOut\": \"2015-08-22T06:37:08.524Z\",\n      \"totalHours\": \"string\",\n      \"status\": \"Present\"\n    },\n    {\n      \"date\": \"2026-04-17\",\n      \"firstIn\": \"2023-05-10T12:49:45.557Z\",\n      \"lastOut\": \"1973-02-25T17:54:37.687Z\",\n      \"totalHours\": \"string\",\n      \"status\": \"Present\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "005e8f32-e61b-466c-bacc-3b5f5a8e7a80",
+          "name": "Bulk Import Attendance",
+          "request": {
+            "name": "Bulk Import Attendance",
+            "description": {},
+            "url": {
+              "path": [
+                "attendance",
+                "bulkImport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2bea64e9-5549-4e42-b052-2fb9771789c1",
+              "name": "Bulk import accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attendance",
+                    "bulkImport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b555b9cc-422a-4a33-bed6-8f541f0fb2dc",
+      "name": "Time Tracker",
+      "description": {
+        "content": "Projects, jobs, and timesheet entries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73d1e4d2-3a76-49c5-88c7-7ac96b4bdbd5",
+          "name": "List Time Tracker Jobs",
+          "request": {
+            "name": "List Time Tracker Jobs",
+            "description": {},
+            "url": {
+              "path": [
+                "timetracker",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc2e6e8b-099b-4474-b376-8025d6586800",
+              "name": "Jobs returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timetracker",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbb897f5-2084-4ab5-bf72-3f5acde33b54",
+          "name": "Create Time Tracker Job",
+          "request": {
+            "name": "Create Time Tracker Job",
+            "description": {},
+            "url": {
+              "path": [
+                "timetracker",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fee3e701-fec5-4bac-86a7-5a57d95a8b71",
+              "name": "Job created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timetracker",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86b104d0-5084-4dcf-8cd3-2b4ff6432e0d",
+          "name": "List Time Logs",
+          "request": {
+            "name": "List Time Logs",
+            "description": {},
+            "url": {
+              "path": [
+                "timetracker",
+                "timelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1297117-0e7b-4288-87c3-e52b32073a7b",
+              "name": "Time logs returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timetracker",
+                    "timelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"result\": [\n      {\n        \"timeLogId\": \"string\",\n        \"jobId\": \"string\",\n        \"user\": \"string\",\n        \"workDate\": \"2014-08-07\",\n        \"hours\": 9245.828355792353,\n        \"billingStatus\": \"billable\",\n        \"description\": \"string\"\n      },\n      {\n        \"timeLogId\": \"string\",\n        \"jobId\": \"string\",\n        \"user\": \"string\",\n        \"workDate\": \"2017-05-19\",\n        \"hours\": 739.9902194403185,\n        \"billingStatus\": \"nonBillable\",\n        \"description\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d56bad84-4ceb-44d9-9377-853dff06e7de",
+          "name": "Create Time Log",
+          "request": {
+            "name": "Create Time Log",
+            "description": {},
+            "url": {
+              "path": [
+                "timetracker",
+                "timelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "jobId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "workDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "hours",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "billingStatus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "825d3cd4-5963-4994-919c-da09fa2251bb",
+              "name": "Time log created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timetracker",
+                    "timelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "jobId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "workDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "hours",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billingStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "72538cd1-9a1d-45bf-b11b-8d3c8b63bc31",
+      "name": "Dashboard",
+      "description": {
+        "content": "Dashboard data reads for analytics widgets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "56d03acf-8391-4935-8ddf-5a25ca9bca1b",
+          "name": "List Announcements",
+          "request": {
+            "name": "List Announcements",
+            "description": {},
+            "url": {
+              "path": [
+                "dashboard",
+                "getAnnouncements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2a9b88c-d309-4a26-8985-2218d64281c9",
+              "name": "Announcements returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    "getAnnouncements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74b78cc1-0dd8-445d-840e-e773e14d7e67",
+          "name": "List Upcoming Birthdays",
+          "request": {
+            "name": "List Upcoming Birthdays",
+            "description": {},
+            "url": {
+              "path": [
+                "dashboard",
+                "getBirthdays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b205e163-bb64-4802-93b4-6da34ff4bc72",
+              "name": "Birthdays returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    "getBirthdays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1f5a2ace-32a7-478b-817b-3203c032fe31",
+      "name": "Automation",
+      "description": {
+        "content": "Workflow and automation triggers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "46280d69-906e-442e-af13-a6d5e8ff3a77",
+          "name": "Trigger Workflow",
+          "request": {
+            "name": "Trigger Workflow",
+            "description": {},
+            "url": {
+              "path": [
+                "automation",
+                "triggerWorkflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "workflowId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>",
+                  "description": "JSON-encoded workflow input."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aa6edfaf-d16f-4d20-ac0b-5f68f89e1c36",
+              "name": "Workflow triggered.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "automation",
+                    "triggerWorkflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-encoded workflow input.",
+                        "type": "text/plain"
+                      },
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://people.zoho.com/people/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoPeople.employee.ALL ZohoPeople.forms.ALL ZohoPeople.forms.READ ZohoPeople.forms.CREATE ZohoPeople.forms.UPDATE ZohoPeople.leave.ALL ZohoPeople.leave.READ ZohoPeople.leave.CREATE ZohoPeople.leave.UPDATE ZohoPeople.attendance.ALL ZohoPeople.timetracker.ALL ZohoPeople.dashboard.ALL ZohoPeople.automation.ALL"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "63534032-b6e1-4f4f-a90b-ec6b9f680bcb",
+    "name": "Zoho People REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenAPI specification for the Zoho People HRMS REST API. Endpoints are\norganized around the seven `ZOHOPEOPLE` OAuth scopes that the provider\npublishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,\n`attendance`, and `leave`. All requests are authenticated with Zoho\nAccounts OAuth 2.0 bearer tokens issued for the relevant scope and\noperation type (READ, CREATE, UPDATE, DELETE, ALL).\n\nReference: https://www.zoho.com/people/api/overview.html\n\n\nContact Support:\n Name: Zoho People",
+      "type": "text/plain"
+    }
+  }
+}
