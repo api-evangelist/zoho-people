@@ -89,7 +89,7 @@ common:
     url: https://help.zoho.com/portal/en/kb/people
   - type: Pricing
     url: https://www.zoho.com/people/zohopeople-pricing.html
-  - type: SignUp
+  - type: Signup
     url: https://www.zoho.com/people/signup.html
   - type: Login
     url: https://people.zoho.com/
