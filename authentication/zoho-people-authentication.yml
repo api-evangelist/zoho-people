@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/zoho-people-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: ZohoOAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+    scopes: 13
+  description: |-
+    Zoho Accounts OAuth 2.0 — Authorization Code grant. Access tokens
+    live for 1 hour; refresh tokens are long-lived until revoked.
+    Scope syntax is `ZOHOPEOPLE.<scope>.<operation>` where scope is
+    one of employee, forms, dashboard, automation, timetracker,
+    attendance, leave; operation is ALL, READ, CREATE, UPDATE, or
+    DELETE.
+  sources:
+  - openapi/zoho-people-openapi.yml
