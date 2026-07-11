@@ -1,0 +1,96 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/zoho-people-openapi.yml
+schemes:
+- name: ZohoOAuth2
+  source: openapi/zoho-people-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+  description: |-
+    Zoho Accounts OAuth 2.0 — Authorization Code grant. Access tokens
+    live for 1 hour; refresh tokens are long-lived until revoked.
+    Scope syntax is `ZOHOPEOPLE.<scope>.<operation>` where scope is
+    one of employee, forms, dashboard, automation, timetracker,
+    attendance, leave; operation is ALL, READ, CREATE, UPDATE, or
+    DELETE.
+scopes:
+- scope: ZohoPeople.attendance.ALL
+  description: Full access to attendance operations
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.automation.ALL
+  description: Full access to automation / workflows
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.dashboard.ALL
+  description: Full access to dashboard reads
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.employee.ALL
+  description: Full access to employee records
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.forms.ALL
+  description: Full access to form records
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.forms.CREATE
+  description: Create form records
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.forms.READ
+  description: Read form records
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.forms.UPDATE
+  description: Update form records
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.leave.ALL
+  description: Full access to leave operations
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.leave.CREATE
+  description: Submit leave requests
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.leave.READ
+  description: Read leave records
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.leave.UPDATE
+  description: Update leave requests
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml
+- scope: ZohoPeople.timetracker.ALL
+  description: Full access to time-tracker operations
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/zoho-people-openapi.yml

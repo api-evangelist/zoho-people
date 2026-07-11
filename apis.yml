@@ -79,6 +79,10 @@ apis:
       - type: FinOps
         url: https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/finops/zoho-people-finops.yml
 common:
+  - type: Authentication
+    url: authentication/zoho-people-authentication.yml
+  - type: OAuthScopes
+    url: scopes/zoho-people-scopes.yml
   - type: Website
     url: https://www.zoho.com/people/
   - type: ProductOverview
