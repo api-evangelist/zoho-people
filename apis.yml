@@ -79,6 +79,8 @@ apis:
       - type: FinOps
         url: https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/finops/zoho-people-finops.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/zoho-people-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/zoho-people-vulnerability-disclosure.yml
   - type: DomainSecurity
