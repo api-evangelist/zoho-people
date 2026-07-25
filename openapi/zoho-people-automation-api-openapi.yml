@@ -1,0 +1,108 @@
+openapi: 3.1.0
+info:
+  title: Zoho People REST Attendance Automation API
+  version: 1.0.0
+  description: 'OpenAPI specification for the Zoho People HRMS REST API. Endpoints are
+
+    organized around the seven `ZOHOPEOPLE` OAuth scopes that the provider
+
+    publishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,
+
+    `attendance`, and `leave`. All requests are authenticated with Zoho
+
+    Accounts OAuth 2.0 bearer tokens issued for the relevant scope and
+
+    operation type (READ, CREATE, UPDATE, DELETE, ALL).
+
+
+    Reference: https://www.zoho.com/people/api/overview.html
+
+    '
+  contact:
+    name: Zoho People
+    url: https://www.zoho.com/people/
+  license:
+    name: Zoho Terms of Service
+    url: https://www.zoho.com/terms.html
+servers:
+- url: https://people.zoho.com/people/api
+  description: Zoho People — US data center (default)
+- url: https://people.zoho.eu/people/api
+  description: Zoho People — EU data center
+- url: https://people.zoho.in/people/api
+  description: Zoho People — India data center
+- url: https://people.zoho.com.au/people/api
+  description: Zoho People — Australia data center
+- url: https://people.zoho.jp/people/api
+  description: Zoho People — Japan data center
+- url: https://people.zoho.com.cn/people/api
+  description: Zoho People — China data center
+- url: https://people.zohocloud.ca/people/api
+  description: Zoho People — Canada data center
+- url: https://people.zoho.sa/people/api
+  description: Zoho People — Saudi Arabia data center
+security:
+- ZohoOAuth2: []
+tags:
+- name: Automation
+  description: Workflow and automation triggers.
+paths:
+  /automation/triggerWorkflow:
+    post:
+      tags:
+      - Automation
+      summary: Trigger Workflow
+      operationId: triggerWorkflow
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - workflowId
+              properties:
+                workflowId:
+                  type: string
+                inputData:
+                  type: string
+                  description: JSON-encoded workflow input.
+      responses:
+        '200':
+          description: Workflow triggered.
+components:
+  securitySchemes:
+    ZohoOAuth2:
+      type: oauth2
+      description: 'Zoho Accounts OAuth 2.0 — Authorization Code grant. Access tokens
+
+        live for 1 hour; refresh tokens are long-lived until revoked.
+
+        Scope syntax is `ZOHOPEOPLE.<scope>.<operation>` where scope is
+
+        one of employee, forms, dashboard, automation, timetracker,
+
+        attendance, leave; operation is ALL, READ, CREATE, UPDATE, or
+
+        DELETE.
+
+        '
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+          tokenUrl: https://accounts.zoho.com/oauth/v2/token
+          refreshUrl: https://accounts.zoho.com/oauth/v2/token
+          scopes:
+            ZohoPeople.employee.ALL: Full access to employee records
+            ZohoPeople.forms.ALL: Full access to form records
+            ZohoPeople.forms.READ: Read form records
+            ZohoPeople.forms.CREATE: Create form records
+            ZohoPeople.forms.UPDATE: Update form records
+            ZohoPeople.leave.ALL: Full access to leave operations
+            ZohoPeople.leave.READ: Read leave records
+            ZohoPeople.leave.CREATE: Submit leave requests
+            ZohoPeople.leave.UPDATE: Update leave requests
+            ZohoPeople.attendance.ALL: Full access to attendance operations
+            ZohoPeople.timetracker.ALL: Full access to time-tracker operations
+            ZohoPeople.dashboard.ALL: Full access to dashboard reads
+            ZohoPeople.automation.ALL: Full access to automation / workflows
