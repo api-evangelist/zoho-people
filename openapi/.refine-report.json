@@ -1,0 +1,26 @@
+{
+  "provider": "zoho-people",
+  "sources": [
+    "zoho-people-attendance-api-openapi.yml",
+    "zoho-people-automation-api-openapi.yml",
+    "zoho-people-dashboard-api-openapi.yml",
+    "zoho-people-employee-api-openapi.yml",
+    "zoho-people-forms-api-openapi.yml",
+    "zoho-people-leave-api-openapi.yml",
+    "zoho-people-time-tracker-api-openapi.yml"
+  ],
+  "outputs": [
+    "zoho-people-attendance-api-openapi.yml",
+    "zoho-people-automation-api-openapi.yml",
+    "zoho-people-dashboard-api-openapi.yml",
+    "zoho-people-employee-api-openapi.yml",
+    "zoho-people-forms-api-openapi.yml",
+    "zoho-people-leave-api-openapi.yml",
+    "zoho-people-time-tracker-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

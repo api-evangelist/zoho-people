@@ -1,0 +1,506 @@
+openapi: 3.1.0
+info:
+  title: Zoho People REST API
+  version: 1.0.0
+  description: |
+    OpenAPI specification for the Zoho People HRMS REST API. Endpoints are
+    organized around the seven `ZOHOPEOPLE` OAuth scopes that the provider
+    publishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,
+    `attendance`, and `leave`. All requests are authenticated with Zoho
+    Accounts OAuth 2.0 bearer tokens issued for the relevant scope and
+    operation type (READ, CREATE, UPDATE, DELETE, ALL).
+
+    Reference: https://www.zoho.com/people/api/overview.html
+  contact:
+    name: Zoho People
+    url: https://www.zoho.com/people/
+  license:
+    name: Zoho Terms of Service
+    url: https://www.zoho.com/terms.html
+servers:
+  - url: https://people.zoho.com/people/api
+    description: Zoho People — US data center (default)
+  - url: https://people.zoho.eu/people/api
+    description: Zoho People — EU data center
+  - url: https://people.zoho.in/people/api
+    description: Zoho People — India data center
+  - url: https://people.zoho.com.au/people/api
+    description: Zoho People — Australia data center
+  - url: https://people.zoho.jp/people/api
+    description: Zoho People — Japan data center
+  - url: https://people.zoho.com.cn/people/api
+    description: Zoho People — China data center
+  - url: https://people.zohocloud.ca/people/api
+    description: Zoho People — Canada data center
+  - url: https://people.zoho.sa/people/api
+    description: Zoho People — Saudi Arabia data center
+security:
+  - ZohoOAuth2: []
+tags:
+  - name: Employee
+    description: Employee record CRUD across the People HRIS.
+  - name: Forms
+    description: Custom and standard form record operations.
+  - name: Leave
+    description: Leave types, balances, and request lifecycle.
+  - name: Attendance
+    description: Attendance entries, check-in / check-out, regularization.
+  - name: Time Tracker
+    description: Projects, jobs, and timesheet entries.
+  - name: Dashboard
+    description: Dashboard data reads for analytics widgets.
+  - name: Automation
+    description: Workflow and automation triggers.
+paths:
+  /forms/{formName}/records:
+    get:
+      tags: [Forms]
+      summary: List Form Records
+      operationId: listFormRecords
+      description: Fetch records from a Zoho People form (employee form, custom form, etc.).
+      parameters:
+        - $ref: '#/components/parameters/FormName'
+        - name: searchParams
+          in: query
+          schema: { type: string }
+          description: JSON-encoded search criteria.
+        - name: sIndex
+          in: query
+          schema: { type: integer, default: 1 }
+        - name: rec_limit
+          in: query
+          schema: { type: integer, default: 100, maximum: 200 }
+      responses:
+        '200':
+          description: Records returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items: { $ref: '#/components/schemas/FormRecord' }
+    post:
+      tags: [Forms]
+      summary: Insert Form Record
+      operationId: insertFormRecord
+      description: Insert a new record into a Zoho People form.
+      parameters:
+        - $ref: '#/components/parameters/FormName'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                inputData:
+                  type: string
+                  description: JSON string of field name/value pairs to insert.
+      responses:
+        '200': { description: Record created. }
+  /forms/{formName}/updateRecord:
+    post:
+      tags: [Forms]
+      summary: Update Form Record
+      operationId: updateFormRecord
+      description: Update an existing record in a Zoho People form.
+      parameters:
+        - $ref: '#/components/parameters/FormName'
+        - name: recordId
+          in: query
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                inputData: { type: string }
+      responses:
+        '200': { description: Record updated. }
+
+  /forms/employee/getRecords:
+    get:
+      tags: [Employee]
+      summary: List Employee Records
+      operationId: listEmployees
+      description: Fetch employee records from the standard Employee form.
+      parameters:
+        - name: searchParams
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Employees returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items: { $ref: '#/components/schemas/Employee' }
+  /forms/employee/insertRecord:
+    post:
+      tags: [Employee]
+      summary: Create Employee Record
+      operationId: createEmployee
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                inputData: { type: string, description: 'JSON-encoded employee fields.' }
+      responses:
+        '200': { description: Employee created. }
+  /forms/employee/updateRecord:
+    post:
+      tags: [Employee]
+      summary: Update Employee Record
+      operationId: updateEmployee
+      parameters:
+        - name: recordId
+          in: query
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                inputData: { type: string }
+      responses:
+        '200': { description: Employee updated. }
+
+  /leave/getHolidays:
+    get:
+      tags: [Leave]
+      summary: List Holidays
+      operationId: listHolidays
+      parameters:
+        - name: userId
+          in: query
+          schema: { type: string }
+        - name: year
+          in: query
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Holidays returned.
+  /leave/getLeaveTypeDetails:
+    get:
+      tags: [Leave]
+      summary: List Leave Types
+      operationId: listLeaveTypes
+      parameters:
+        - name: userId
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Leave types returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items: { $ref: '#/components/schemas/LeaveType' }
+  /forms/leave/insertRecord:
+    post:
+      tags: [Leave]
+      summary: Apply For Leave
+      operationId: applyForLeave
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                inputData:
+                  type: string
+                  description: JSON-encoded leave request (employeeId, leaveTypeId, from, to, reason).
+      responses:
+        '200': { description: Leave request submitted. }
+  /forms/leave/getRecords:
+    get:
+      tags: [Leave]
+      summary: List Leave Requests
+      operationId: listLeaveRequests
+      parameters:
+        - name: searchParams
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Leave requests returned.
+
+  /attendance:
+    post:
+      tags: [Attendance]
+      summary: Check In Or Check Out
+      operationId: checkInOut
+      description: Mark an attendance entry (check-in or check-out) for the authenticated user.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [checkIn, checkOut]
+              properties:
+                checkIn: { type: string, format: date-time }
+                checkOut: { type: string, format: date-time }
+                empId: { type: string }
+      responses:
+        '200': { description: Attendance entry recorded. }
+  /attendance/getUserReport:
+    get:
+      tags: [Attendance]
+      summary: Get User Attendance Report
+      operationId: getUserAttendanceReport
+      parameters:
+        - name: empId
+          in: query
+          schema: { type: string }
+        - name: sdate
+          in: query
+          schema: { type: string, format: date }
+        - name: edate
+          in: query
+          schema: { type: string, format: date }
+      responses:
+        '200':
+          description: Attendance report returned.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AttendanceReport' }
+  /attendance/bulkImport:
+    post:
+      tags: [Attendance]
+      summary: Bulk Import Attendance
+      operationId: bulkImportAttendance
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file: { type: string, format: binary }
+      responses:
+        '200': { description: Bulk import accepted. }
+
+  /timetracker/jobs:
+    get:
+      tags: [Time Tracker]
+      summary: List Time Tracker Jobs
+      operationId: listJobs
+      responses:
+        '200': { description: Jobs returned. }
+    post:
+      tags: [Time Tracker]
+      summary: Create Time Tracker Job
+      operationId: createJob
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                inputData: { type: string }
+      responses:
+        '200': { description: Job created. }
+  /timetracker/timelogs:
+    get:
+      tags: [Time Tracker]
+      summary: List Time Logs
+      operationId: listTimeLogs
+      parameters:
+        - name: user
+          in: query
+          schema: { type: string }
+        - name: fromDate
+          in: query
+          schema: { type: string, format: date }
+        - name: toDate
+          in: query
+          schema: { type: string, format: date }
+      responses:
+        '200':
+          description: Time logs returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      result:
+                        type: array
+                        items: { $ref: '#/components/schemas/TimeLog' }
+    post:
+      tags: [Time Tracker]
+      summary: Create Time Log
+      operationId: createTimeLog
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                jobId: { type: string }
+                workDate: { type: string, format: date }
+                hours: { type: number }
+                billingStatus: { type: string, enum: [billable, nonBillable] }
+                description: { type: string }
+      responses:
+        '200': { description: Time log created. }
+
+  /dashboard/getAnnouncements:
+    get:
+      tags: [Dashboard]
+      summary: List Announcements
+      operationId: listAnnouncements
+      responses:
+        '200': { description: Announcements returned. }
+  /dashboard/getBirthdays:
+    get:
+      tags: [Dashboard]
+      summary: List Upcoming Birthdays
+      operationId: listBirthdays
+      responses:
+        '200': { description: Birthdays returned. }
+
+  /automation/triggerWorkflow:
+    post:
+      tags: [Automation]
+      summary: Trigger Workflow
+      operationId: triggerWorkflow
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [workflowId]
+              properties:
+                workflowId: { type: string }
+                inputData: { type: string, description: 'JSON-encoded workflow input.' }
+      responses:
+        '200': { description: Workflow triggered. }
+
+components:
+  securitySchemes:
+    ZohoOAuth2:
+      type: oauth2
+      description: |
+        Zoho Accounts OAuth 2.0 — Authorization Code grant. Access tokens
+        live for 1 hour; refresh tokens are long-lived until revoked.
+        Scope syntax is `ZOHOPEOPLE.<scope>.<operation>` where scope is
+        one of employee, forms, dashboard, automation, timetracker,
+        attendance, leave; operation is ALL, READ, CREATE, UPDATE, or
+        DELETE.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+          tokenUrl: https://accounts.zoho.com/oauth/v2/token
+          refreshUrl: https://accounts.zoho.com/oauth/v2/token
+          scopes:
+            ZohoPeople.employee.ALL: Full access to employee records
+            ZohoPeople.forms.ALL: Full access to form records
+            ZohoPeople.forms.READ: Read form records
+            ZohoPeople.forms.CREATE: Create form records
+            ZohoPeople.forms.UPDATE: Update form records
+            ZohoPeople.leave.ALL: Full access to leave operations
+            ZohoPeople.leave.READ: Read leave records
+            ZohoPeople.leave.CREATE: Submit leave requests
+            ZohoPeople.leave.UPDATE: Update leave requests
+            ZohoPeople.attendance.ALL: Full access to attendance operations
+            ZohoPeople.timetracker.ALL: Full access to time-tracker operations
+            ZohoPeople.dashboard.ALL: Full access to dashboard reads
+            ZohoPeople.automation.ALL: Full access to automation / workflows
+  parameters:
+    FormName:
+      name: formName
+      in: path
+      required: true
+      schema: { type: string }
+      description: Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView).
+  schemas:
+    Employee:
+      type: object
+      properties:
+        EmployeeID: { type: string }
+        FirstName: { type: string }
+        LastName: { type: string }
+        EmailID: { type: string, format: email }
+        Department: { type: string }
+        Designation: { type: string }
+        Location: { type: string }
+        DateofJoining: { type: string, format: date }
+        ReportingTo: { type: string }
+        EmploymentType: { type: string, enum: [Permanent, Contract, Intern, Consultant, Temporary] }
+        EmployeeStatus: { type: string, enum: [Active, Inactive, Terminated, OnLeave] }
+    FormRecord:
+      type: object
+      additionalProperties: true
+      properties:
+        recordId: { type: string }
+        addedTime: { type: string, format: date-time }
+        modifiedTime: { type: string, format: date-time }
+    LeaveType:
+      type: object
+      properties:
+        Id: { type: string }
+        Name: { type: string }
+        Unit: { type: string, enum: [Days, Hours] }
+        IsPaid: { type: boolean }
+        IsHalfDayAllowed: { type: boolean }
+        Balance: { type: number }
+    AttendanceReport:
+      type: object
+      properties:
+        empId: { type: string }
+        records:
+          type: array
+          items:
+            type: object
+            properties:
+              date: { type: string, format: date }
+              firstIn: { type: string, format: date-time }
+              lastOut: { type: string, format: date-time }
+              totalHours: { type: string }
+              status: { type: string, enum: [Present, Absent, Leave, Holiday, Weekend] }
+    TimeLog:
+      type: object
+      properties:
+        timeLogId: { type: string }
+        jobId: { type: string }
+        user: { type: string }
+        workDate: { type: string, format: date }
+        hours: { type: number }
+        billingStatus: { type: string, enum: [billable, nonBillable] }
+        description: { type: string }
