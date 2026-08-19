@@ -1,0 +1,428 @@
+{
+  "item": [
+    {
+      "id": "40a25225-ca04-467d-8878-fe0dd9de727c",
+      "name": "Forms",
+      "description": {
+        "content": "Custom and standard form record operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "415db22e-6efe-4a2c-9525-75862838eefb",
+          "name": "List Form Records",
+          "request": {
+            "name": "List Form Records",
+            "description": {
+              "content": "Fetch records from a Zoho People form (employee form, custom form, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formName",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchParams",
+                  "value": "<string>",
+                  "description": "JSON-encoded search criteria."
+                },
+                {
+                  "disabled": false,
+                  "key": "sIndex",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "rec_limit",
+                  "value": "100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formName",
+                  "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e17c102e-f04c-4c4b-99d3-fe35087e600e",
+              "name": "Records returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchParams",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sIndex",
+                      "value": "1"
+                    },
+                    {
+                      "key": "rec_limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formName",
+                      "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"result\": [\n      {\n        \"recordId\": \"string\",\n        \"addedTime\": \"1950-05-18T20:43:57.177Z\",\n        \"modifiedTime\": \"1983-01-14T10:05:08.140Z\",\n        \"key_0\": false,\n        \"key_1\": false,\n        \"key_2\": 9831.64901637933\n      },\n      {\n        \"recordId\": \"string\",\n        \"addedTime\": \"1991-08-23T03:09:37.677Z\",\n        \"modifiedTime\": \"1975-01-13T17:00:13.837Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14a53e29-3d90-414b-9d8e-a1ebdcf9a8c9",
+          "name": "Insert Form Record",
+          "request": {
+            "name": "Insert Form Record",
+            "description": {
+              "content": "Insert a new record into a Zoho People form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formName",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formName",
+                  "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>",
+                  "description": "JSON string of field name/value pairs to insert."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "78149b13-335e-41da-837e-892c816c98a8",
+              "name": "Record created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formName",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formName",
+                      "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON string of field name/value pairs to insert.",
+                        "type": "text/plain"
+                      },
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56e53de4-8241-442f-9abb-a170736298e6",
+          "name": "Update Form Record",
+          "request": {
+            "name": "Update Form Record",
+            "description": {
+              "content": "Update an existing record in a Zoho People form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formName",
+                "updateRecord"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "recordId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formName",
+                  "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d5d44687-1b17-4e2a-a4d0-ac793bfcf379",
+              "name": "Record updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formName",
+                    "updateRecord"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "recordId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formName",
+                      "description": "(Required) Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://people.zoho.com/people/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoPeople.employee.ALL ZohoPeople.forms.ALL ZohoPeople.forms.READ ZohoPeople.forms.CREATE ZohoPeople.forms.UPDATE ZohoPeople.leave.ALL ZohoPeople.leave.READ ZohoPeople.leave.CREATE ZohoPeople.leave.UPDATE ZohoPeople.attendance.ALL ZohoPeople.timetracker.ALL ZohoPeople.dashboard.ALL ZohoPeople.automation.ALL"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eeb9a936-6941-406e-88a9-7ff4ddafa247",
+    "name": "Zoho People REST Attendance Forms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenAPI specification for the Zoho People HRMS REST API. Endpoints are\norganized around the seven `ZOHOPEOPLE` OAuth scopes that the provider\npublishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,\n`attendance`, and `leave`. All requests are authenticated with Zoho\nAccounts OAuth 2.0 bearer tokens issued for the relevant scope and\noperation type (READ, CREATE, UPDATE, DELETE, ALL).\n\nReference: https://www.zoho.com/people/api/overview.html\n\n\nContact Support:\n Name: Zoho People",
+      "type": "text/plain"
+    }
+  }
+}

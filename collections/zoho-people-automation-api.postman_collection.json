@@ -1,0 +1,169 @@
+{
+  "item": [
+    {
+      "id": "e714d3bf-9ab3-408d-9306-f0c23b128fa8",
+      "name": "Automation",
+      "description": {
+        "content": "Workflow and automation triggers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd225400-2ca5-446e-b3d6-03603aafbaa7",
+          "name": "Trigger Workflow",
+          "request": {
+            "name": "Trigger Workflow",
+            "description": {},
+            "url": {
+              "path": [
+                "automation",
+                "triggerWorkflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "workflowId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>",
+                  "description": "JSON-encoded workflow input."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4953e9bc-cd2a-4e59-904c-e9b53f26f2f6",
+              "name": "Workflow triggered.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "automation",
+                    "triggerWorkflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-encoded workflow input.",
+                        "type": "text/plain"
+                      },
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://people.zoho.com/people/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoPeople.employee.ALL ZohoPeople.forms.ALL ZohoPeople.forms.READ ZohoPeople.forms.CREATE ZohoPeople.forms.UPDATE ZohoPeople.leave.ALL ZohoPeople.leave.READ ZohoPeople.leave.CREATE ZohoPeople.leave.UPDATE ZohoPeople.attendance.ALL ZohoPeople.timetracker.ALL ZohoPeople.dashboard.ALL ZohoPeople.automation.ALL"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b45119ed-3a2f-461c-bd1a-91d2c274a235",
+    "name": "Zoho People REST Attendance Automation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenAPI specification for the Zoho People HRMS REST API. Endpoints are\norganized around the seven `ZOHOPEOPLE` OAuth scopes that the provider\npublishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,\n`attendance`, and `leave`. All requests are authenticated with Zoho\nAccounts OAuth 2.0 bearer tokens issued for the relevant scope and\noperation type (READ, CREATE, UPDATE, DELETE, ALL).\n\nReference: https://www.zoho.com/people/api/overview.html\n\n\nContact Support:\n Name: Zoho People",
+      "type": "text/plain"
+    }
+  }
+}

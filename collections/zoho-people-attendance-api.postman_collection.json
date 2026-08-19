@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "9b15bdc9-b316-4252-aa00-2f6d511f69af",
+      "name": "Attendance",
+      "description": {
+        "content": "Attendance entries, check-in / check-out, regularization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6bdd2f11-1b08-4f14-8215-84d70b49c3aa",
+          "name": "Check In Or Check Out",
+          "request": {
+            "name": "Check In Or Check Out",
+            "description": {
+              "content": "Mark an attendance entry (check-in or check-out) for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attendance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "checkIn",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "checkOut",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "empId",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5e618803-077a-439d-8b51-b1067bbcdce0",
+              "name": "Attendance entry recorded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attendance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "checkIn",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "checkOut",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "empId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84135d29-1845-4225-a2bc-4258837ce651",
+          "name": "Get User Attendance Report",
+          "request": {
+            "name": "Get User Attendance Report",
+            "description": {},
+            "url": {
+              "path": [
+                "attendance",
+                "getUserReport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "empId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sdate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "edate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84bb8fba-9be1-4f2c-adf4-45bc8cdac098",
+              "name": "Attendance report returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attendance",
+                    "getUserReport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "empId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "edate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"empId\": \"string\",\n  \"records\": [\n    {\n      \"date\": \"1978-11-20\",\n      \"firstIn\": \"2009-09-08T00:14:14.757Z\",\n      \"lastOut\": \"1979-09-16T07:17:52.732Z\",\n      \"totalHours\": \"string\",\n      \"status\": \"Absent\"\n    },\n    {\n      \"date\": \"1976-11-16\",\n      \"firstIn\": \"1985-12-31T09:17:17.641Z\",\n      \"lastOut\": \"2001-10-18T13:04:28.906Z\",\n      \"totalHours\": \"string\",\n      \"status\": \"Holiday\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83e75548-6e33-48df-ba3f-17db85a2654a",
+          "name": "Bulk Import Attendance",
+          "request": {
+            "name": "Bulk Import Attendance",
+            "description": {},
+            "url": {
+              "path": [
+                "attendance",
+                "bulkImport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a12e3150-9d05-40f3-9ea6-5cc704a40e25",
+              "name": "Bulk import accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attendance",
+                    "bulkImport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://people.zoho.com/people/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoPeople.employee.ALL ZohoPeople.forms.ALL ZohoPeople.forms.READ ZohoPeople.forms.CREATE ZohoPeople.forms.UPDATE ZohoPeople.leave.ALL ZohoPeople.leave.READ ZohoPeople.leave.CREATE ZohoPeople.leave.UPDATE ZohoPeople.attendance.ALL ZohoPeople.timetracker.ALL ZohoPeople.dashboard.ALL ZohoPeople.automation.ALL"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "15cff3e2-1d5f-4e56-b346-aa9021d5bc14",
+    "name": "Zoho People REST Attendance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenAPI specification for the Zoho People HRMS REST API. Endpoints are\norganized around the seven `ZOHOPEOPLE` OAuth scopes that the provider\npublishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,\n`attendance`, and `leave`. All requests are authenticated with Zoho\nAccounts OAuth 2.0 bearer tokens issued for the relevant scope and\noperation type (READ, CREATE, UPDATE, DELETE, ALL).\n\nReference: https://www.zoho.com/people/api/overview.html\n\n\nContact Support:\n Name: Zoho People",
+      "type": "text/plain"
+    }
+  }
+}

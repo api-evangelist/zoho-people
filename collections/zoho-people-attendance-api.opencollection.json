@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho People REST Attendance API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+      "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attendance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check In Or Check Out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/attendance",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "checkIn",
+                  "value": ""
+                },
+                {
+                  "name": "checkOut",
+                  "value": ""
+                },
+                {
+                  "name": "empId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Mark an attendance entry (check-in or check-out) for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Get User Attendance Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/attendance/getUserReport",
+            "params": [
+              {
+                "name": "empId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sdate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "edate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get User Attendance Report"
+        },
+        {
+          "info": {
+            "name": "Bulk Import Attendance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/attendance/bulkImport",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Bulk Import Attendance"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

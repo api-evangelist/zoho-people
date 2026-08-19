@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho People REST Attendance Dashboard API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+      "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dashboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Announcements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/dashboard/getAnnouncements"
+          },
+          "docs": "List Announcements"
+        },
+        {
+          "info": {
+            "name": "List Upcoming Birthdays",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/dashboard/getBirthdays"
+          },
+          "docs": "List Upcoming Birthdays"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,191 @@
+{
+  "item": [
+    {
+      "id": "c68c0826-eb68-4af2-84fd-8d38f3d5b404",
+      "name": "Dashboard",
+      "description": {
+        "content": "Dashboard data reads for analytics widgets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d8029b4-c23e-4041-864e-b5ec525a68d9",
+          "name": "List Announcements",
+          "request": {
+            "name": "List Announcements",
+            "description": {},
+            "url": {
+              "path": [
+                "dashboard",
+                "getAnnouncements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57c353c3-334e-4fe4-8ae2-949e80184356",
+              "name": "Announcements returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    "getAnnouncements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02d7ae84-21c4-4ec4-af33-82469112db6c",
+          "name": "List Upcoming Birthdays",
+          "request": {
+            "name": "List Upcoming Birthdays",
+            "description": {},
+            "url": {
+              "path": [
+                "dashboard",
+                "getBirthdays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b591d027-0d9f-4224-ba24-e746b7b28237",
+              "name": "Birthdays returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    "getBirthdays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://people.zoho.com/people/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoPeople.employee.ALL ZohoPeople.forms.ALL ZohoPeople.forms.READ ZohoPeople.forms.CREATE ZohoPeople.forms.UPDATE ZohoPeople.leave.ALL ZohoPeople.leave.READ ZohoPeople.leave.CREATE ZohoPeople.leave.UPDATE ZohoPeople.attendance.ALL ZohoPeople.timetracker.ALL ZohoPeople.dashboard.ALL ZohoPeople.automation.ALL"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5fb6c137-ed95-4153-8741-a675123e2307",
+    "name": "Zoho People REST Attendance Dashboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenAPI specification for the Zoho People HRMS REST API. Endpoints are\norganized around the seven `ZOHOPEOPLE` OAuth scopes that the provider\npublishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,\n`attendance`, and `leave`. All requests are authenticated with Zoho\nAccounts OAuth 2.0 bearer tokens issued for the relevant scope and\noperation type (READ, CREATE, UPDATE, DELETE, ALL).\n\nReference: https://www.zoho.com/people/api/overview.html\n\n\nContact Support:\n Name: Zoho People",
+      "type": "text/plain"
+    }
+  }
+}

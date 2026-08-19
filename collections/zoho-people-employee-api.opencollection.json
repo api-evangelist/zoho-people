@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho People REST Attendance Employee API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+      "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employee",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Employee Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/forms/employee/getRecords",
+            "params": [
+              {
+                "name": "searchParams",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch employee records from the standard Employee form."
+        },
+        {
+          "info": {
+            "name": "Create Employee Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/forms/employee/insertRecord",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Employee Record"
+        },
+        {
+          "info": {
+            "name": "Update Employee Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/forms/employee/updateRecord",
+            "params": [
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update Employee Record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

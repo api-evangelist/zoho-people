@@ -1,0 +1,454 @@
+{
+  "item": [
+    {
+      "id": "851516df-f943-4408-958e-bf1d72025d10",
+      "name": "Time Tracker",
+      "description": {
+        "content": "Projects, jobs, and timesheet entries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2cc0b9f6-62af-460a-b529-f2eef7096f0d",
+          "name": "List Time Tracker Jobs",
+          "request": {
+            "name": "List Time Tracker Jobs",
+            "description": {},
+            "url": {
+              "path": [
+                "timetracker",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6cdaa7b8-379c-45a6-8a6d-aed583ef230a",
+              "name": "Jobs returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timetracker",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "483cba30-5278-45eb-bedf-a02f030d8436",
+          "name": "Create Time Tracker Job",
+          "request": {
+            "name": "Create Time Tracker Job",
+            "description": {},
+            "url": {
+              "path": [
+                "timetracker",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "97390d69-6605-4cb0-a423-3be078478edb",
+              "name": "Job created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timetracker",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66b8535c-9c41-4863-a12b-17eaf6c52b27",
+          "name": "List Time Logs",
+          "request": {
+            "name": "List Time Logs",
+            "description": {},
+            "url": {
+              "path": [
+                "timetracker",
+                "timelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa31106f-8547-4ff0-99ed-68a132d0e2dc",
+              "name": "Time logs returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timetracker",
+                    "timelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"result\": [\n      {\n        \"timeLogId\": \"string\",\n        \"jobId\": \"string\",\n        \"user\": \"string\",\n        \"workDate\": \"1979-03-29\",\n        \"hours\": 5429.921473924648,\n        \"billingStatus\": \"billable\",\n        \"description\": \"string\"\n      },\n      {\n        \"timeLogId\": \"string\",\n        \"jobId\": \"string\",\n        \"user\": \"string\",\n        \"workDate\": \"2018-01-22\",\n        \"hours\": 7285.804446910973,\n        \"billingStatus\": \"billable\",\n        \"description\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48aa4816-ab52-4a20-a0d9-e2959c5adf04",
+          "name": "Create Time Log",
+          "request": {
+            "name": "Create Time Log",
+            "description": {},
+            "url": {
+              "path": [
+                "timetracker",
+                "timelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "jobId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "workDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "hours",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "billingStatus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d5374be5-e0bd-4bb4-897d-6595b90ffe78",
+              "name": "Time log created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timetracker",
+                    "timelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "jobId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "workDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "hours",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "billingStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://people.zoho.com/people/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoPeople.employee.ALL ZohoPeople.forms.ALL ZohoPeople.forms.READ ZohoPeople.forms.CREATE ZohoPeople.forms.UPDATE ZohoPeople.leave.ALL ZohoPeople.leave.READ ZohoPeople.leave.CREATE ZohoPeople.leave.UPDATE ZohoPeople.attendance.ALL ZohoPeople.timetracker.ALL ZohoPeople.dashboard.ALL ZohoPeople.automation.ALL"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "42c2cd0a-f000-4ebc-a7d6-9b2f6b9cc5d5",
+    "name": "Zoho People REST Attendance Time Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenAPI specification for the Zoho People HRMS REST API. Endpoints are\norganized around the seven `ZOHOPEOPLE` OAuth scopes that the provider\npublishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,\n`attendance`, and `leave`. All requests are authenticated with Zoho\nAccounts OAuth 2.0 bearer tokens issued for the relevant scope and\noperation type (READ, CREATE, UPDATE, DELETE, ALL).\n\nReference: https://www.zoho.com/people/api/overview.html\n\n\nContact Support:\n Name: Zoho People",
+      "type": "text/plain"
+    }
+  }
+}

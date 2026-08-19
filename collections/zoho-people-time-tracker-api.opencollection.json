@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho People REST Attendance Time Tracker API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+      "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time Tracker",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Time Tracker Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/timetracker/jobs"
+          },
+          "docs": "List Time Tracker Jobs"
+        },
+        {
+          "info": {
+            "name": "Create Time Tracker Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/timetracker/jobs",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Time Tracker Job"
+        },
+        {
+          "info": {
+            "name": "List Time Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/timetracker/timelogs",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Time Logs"
+        },
+        {
+          "info": {
+            "name": "Create Time Log",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/timetracker/timelogs",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "jobId",
+                  "value": ""
+                },
+                {
+                  "name": "workDate",
+                  "value": ""
+                },
+                {
+                  "name": "hours",
+                  "value": ""
+                },
+                {
+                  "name": "billingStatus",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Time Log"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

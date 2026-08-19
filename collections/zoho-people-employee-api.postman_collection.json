@@ -1,0 +1,355 @@
+{
+  "item": [
+    {
+      "id": "3cb28317-13c1-4eda-b2fb-f3604dd24b20",
+      "name": "Employee",
+      "description": {
+        "content": "Employee record CRUD across the People HRIS.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "510e87dd-8e3c-42c5-96b7-94680d1642ea",
+          "name": "List Employee Records",
+          "request": {
+            "name": "List Employee Records",
+            "description": {
+              "content": "Fetch employee records from the standard Employee form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                "employee",
+                "getRecords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchParams",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0955097b-f8d6-4d38-a338-8b885289e683",
+              "name": "Employees returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "employee",
+                    "getRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchParams",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"result\": [\n      {\n        \"EmployeeID\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"EmailID\": \"0MSHvDdhkW@QiSIGbsgWKvlOuK.ax\",\n        \"Department\": \"string\",\n        \"Designation\": \"string\",\n        \"Location\": \"string\",\n        \"DateofJoining\": \"1998-05-10\",\n        \"ReportingTo\": \"string\",\n        \"EmploymentType\": \"Consultant\",\n        \"EmployeeStatus\": \"Terminated\"\n      },\n      {\n        \"EmployeeID\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"EmailID\": \"wQDOO@pQ.qdia\",\n        \"Department\": \"string\",\n        \"Designation\": \"string\",\n        \"Location\": \"string\",\n        \"DateofJoining\": \"1968-03-06\",\n        \"ReportingTo\": \"string\",\n        \"EmploymentType\": \"Intern\",\n        \"EmployeeStatus\": \"Inactive\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "543ffd80-3157-4448-8e3e-f5093ce6f5b8",
+          "name": "Create Employee Record",
+          "request": {
+            "name": "Create Employee Record",
+            "description": {},
+            "url": {
+              "path": [
+                "forms",
+                "employee",
+                "insertRecord"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>",
+                  "description": "JSON-encoded employee fields."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d36a3d9-f78e-42be-a825-aa33da0a64d9",
+              "name": "Employee created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "employee",
+                    "insertRecord"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-encoded employee fields.",
+                        "type": "text/plain"
+                      },
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "718a0a4b-3bca-4499-852a-00671d222dab",
+          "name": "Update Employee Record",
+          "request": {
+            "name": "Update Employee Record",
+            "description": {},
+            "url": {
+              "path": [
+                "forms",
+                "employee",
+                "updateRecord"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "recordId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "inputData",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4d36209b-d7aa-4a7d-92dc-5da0763db6ce",
+              "name": "Employee updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "employee",
+                    "updateRecord"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "recordId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "inputData",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://people.zoho.com/people/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoPeople.employee.ALL ZohoPeople.forms.ALL ZohoPeople.forms.READ ZohoPeople.forms.CREATE ZohoPeople.forms.UPDATE ZohoPeople.leave.ALL ZohoPeople.leave.READ ZohoPeople.leave.CREATE ZohoPeople.leave.UPDATE ZohoPeople.attendance.ALL ZohoPeople.timetracker.ALL ZohoPeople.dashboard.ALL ZohoPeople.automation.ALL"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3acefd18-6c7d-4cec-8d5a-d115efb1fafa",
+    "name": "Zoho People REST Attendance Employee API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenAPI specification for the Zoho People HRMS REST API. Endpoints are\norganized around the seven `ZOHOPEOPLE` OAuth scopes that the provider\npublishes: `employee`, `forms`, `dashboard`, `automation`, `timetracker`,\n`attendance`, and `leave`. All requests are authenticated with Zoho\nAccounts OAuth 2.0 bearer tokens issued for the relevant scope and\noperation type (READ, CREATE, UPDATE, DELETE, ALL).\n\nReference: https://www.zoho.com/people/api/overview.html\n\n\nContact Support:\n Name: Zoho People",
+      "type": "text/plain"
+    }
+  }
+}

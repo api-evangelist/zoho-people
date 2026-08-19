@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho People REST Attendance Automation API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+      "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Automation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trigger Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/automation/triggerWorkflow",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "workflowId",
+                  "value": ""
+                },
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Trigger Workflow"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

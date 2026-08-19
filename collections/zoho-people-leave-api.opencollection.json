@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zoho People REST Attendance Leave API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+      "accessTokenUrl": "https://accounts.zoho.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Leave",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Holidays",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/leave/getHolidays",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Holidays"
+        },
+        {
+          "info": {
+            "name": "List Leave Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/leave/getLeaveTypeDetails",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Leave Types"
+        },
+        {
+          "info": {
+            "name": "Apply For Leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://people.zoho.com/people/api/forms/leave/insertRecord",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "inputData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Apply For Leave"
+        },
+        {
+          "info": {
+            "name": "List Leave Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://people.zoho.com/people/api/forms/leave/getRecords",
+            "params": [
+              {
+                "name": "searchParams",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Leave Requests"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
