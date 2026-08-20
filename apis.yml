@@ -33,6 +33,19 @@ tags:
   - Performance Management
   - Onboarding
   - Zoho
+  - Authentication
+tags_raw:
+  - HR
+  - HRMS
+  - Human Resources
+  - HRIS
+  - Employee Management
+  - Attendance
+  - Leave Management
+  - Time Tracking
+  - Performance Management
+  - Onboarding
+  - Zoho
   - OAuth 2.0
 url: https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/apis.yml
 created: '2026-05-23'
