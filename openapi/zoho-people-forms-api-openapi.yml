@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Zoho People REST Attendance Forms API
   version: 1.0.0
@@ -135,14 +135,6 @@ paths:
         '200':
           description: Record updated.
 components:
-  parameters:
-    FormName:
-      name: formName
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView).
   schemas:
     FormRecord:
       type: object
@@ -156,6 +148,14 @@ components:
         modifiedTime:
           type: string
           format: date-time
+  parameters:
+    FormName:
+      name: formName
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Linkname of the Zoho People form (e.g. employee, leave, P_EmployeeView).
   securitySchemes:
     ZohoOAuth2:
       type: oauth2
