@@ -34,9 +34,8 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zoho-people.png
 tags:
-  - HR
-  - HRMS
   - Human Resources
+  - HRMS
   - HRIS
   - Employee Management
   - Attendance
@@ -156,6 +155,8 @@ apis:
   humanURL: https://www.zoho.com/people/api/overview.html
   baseURL: https://people.zoho.com/people/api
   tags:
+  - Dashboards
+  tags_raw:
   - Dashboard
   properties:
   - type: OpenAPI
