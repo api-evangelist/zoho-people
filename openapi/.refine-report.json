@@ -1,13 +1,7 @@
 {
   "provider": "zoho-people",
   "sources": [
-    "zoho-people-attendance-api-openapi.yml",
-    "zoho-people-automation-api-openapi.yml",
-    "zoho-people-dashboard-api-openapi.yml",
-    "zoho-people-employee-api-openapi.yml",
-    "zoho-people-forms-api-openapi.yml",
-    "zoho-people-leave-api-openapi.yml",
-    "zoho-people-time-tracker-api-openapi.yml"
+    "_original/zoho-people-openapi.yml"
   ],
   "outputs": [
     "zoho-people-attendance-api-openapi.yml",
@@ -22,14 +16,17 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "zoho-people-attendance-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-people-automation-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-people-dashboard-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-people-employee-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-people-forms-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-people-leave-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-people-time-tracker-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "zoho-people-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "zoho-people-attendance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-people-automation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-people-dashboard-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-people-employee-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-people-forms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-people-leave-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-people-time-tracker-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Zoho People REST Attendance Dashboard API
+  title: Zoho People REST Dashboard API
   version: 1.0.0
   description: 'OpenAPI specification for the Zoho People HRMS REST API. Endpoints are
 
@@ -15,9 +15,7 @@ info:
     operation type (READ, CREATE, UPDATE, DELETE, ALL).
 
 
-    Reference: https://www.zoho.com/people/api/overview.html
-
-    '
+    Reference: https://www.zoho.com/people/api/overview.html'
   contact:
     name: Zoho People
     url: https://www.zoho.com/people/

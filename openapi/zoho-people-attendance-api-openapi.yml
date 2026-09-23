@@ -15,9 +15,7 @@ info:
     operation type (READ, CREATE, UPDATE, DELETE, ALL).
 
 
-    Reference: https://www.zoho.com/people/api/overview.html
-
-    '
+    Reference: https://www.zoho.com/people/api/overview.html'
   contact:
     name: Zoho People
     url: https://www.zoho.com/people/
