@@ -1,0 +1,44 @@
+slug: zoho-people
+provider: Zoho People
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Employee
+  spec_file: zoho-people-employee-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: GET /forms/employee/getRecords 'List Employee Records'; POST /forms/employee/insertRecord
+    'Create Employee Record'
+  reason: CRUD over employee master records in an HRMS is HR Operations Management (employee records administration).
+- tag: Attendance
+  spec_file: zoho-people-attendance-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: POST /attendance checkInOut 'Check In Or Check Out'; GET /attendance/getUserReport 'Get User
+    Attendance Report'
+  reason: Employee check-in/out and attendance reporting within an HRMS is core HR operations (time &
+    attendance administration).
+- tag: Leave
+  spec_file: zoho-people-leave-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: POST /forms/leave/insertRecord applyForLeave 'Apply For Leave'; GET /leave/getLeaveTypeDetails
+    'List Leave Types'
+  reason: Leave application, leave types and holiday calendars are absence administration delivered as
+    HR operations.

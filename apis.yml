@@ -367,6 +367,9 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/zoho-people/refs/heads/main/finops/zoho-people-finops.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/zoho-people-capability-edges.yml
+    name: Zoho People Business Capability Map
   - type: AgenticAccess
     url: agentic-access/zoho-people-agentic-access.yml
   - type: VulnerabilityDisclosure
