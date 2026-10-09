@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 apiCommonsPlans: "0.1"
 provider:
   id: zoho-people
@@ -74,3 +78,39 @@ links:
   pricing: https://www.zoho.com/people/zohopeople-pricing.html
   signup:  https://www.zoho.com/people/signup.html
   contactSales: https://www.zoho.com/people/contact.html
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Essential HR
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Professional
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Premium
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
