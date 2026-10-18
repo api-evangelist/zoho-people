@@ -78,5 +78,5 @@
     - connectors/applications/zoho-people
     vendor_link: https://www.zoho.com/people/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
